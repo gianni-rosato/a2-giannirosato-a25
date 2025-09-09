@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=OpenSans:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=OpenSans:wght@400&display=swap");
 
 :root {
   --bg: oklch(0.300 0.048 231.0);
@@ -177,7 +177,7 @@ tr.priority-critical td {
 }
 
 .priority-badge {
-  color: var(--panel)
+  color: var(--panel);
 }
 
 .priority-low .priority-badge {

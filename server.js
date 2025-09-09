@@ -1,7 +1,7 @@
 import process from "node:process"; // i usually use Deno as my linter & dev server
 import { createServer } from "http";
 import { readFile } from "fs";
-import { join, dirname } from "path";
+import { dirname, join } from "path";
 import { randomUUID } from "crypto";
 import { fileURLToPath } from "url";
 
@@ -20,10 +20,10 @@ function computeDerived(task) {
     const now = new Date();
     const hoursUntilDeadline = Math.max(
       1,
-      (deadlineDate - now) / (1000 * 60 * 60)
+      (deadlineDate - now) / (1000 * 60 * 60),
     );
     task.urgencyScore = Number(
-      (priorityWeight[task.priority] / (hoursUntilDeadline / 24)).toFixed(2)
+      (priorityWeight[task.priority] / (hoursUntilDeadline / 24)).toFixed(2),
     );
   } else {
     // if no deadline: set an urgency score based on just priority
@@ -116,7 +116,7 @@ const server = createServer(async (req, res) => {
         priority: body.priority,
         estimateHrs: body.estimateHrs,
         deadline: body.deadline || null,
-        createdAt: Date.now()
+        createdAt: Date.now(),
       };
 
       computeDerived(task);
